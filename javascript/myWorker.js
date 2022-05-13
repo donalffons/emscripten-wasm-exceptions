@@ -7,10 +7,10 @@ import main from '/emscripten/build/main.js';
   try {
     m.throwSomething();
   } catch (e) {
-    // using -fexceptions
-    // console.log("Exception Message:", m.getExceptionMessage(e));
-
     // using -fwasm-exceptions
     console.log("Exception Message:", m.getExceptionMessage(e.getArg(m.asm.__cpp_exception, 0)));
+
+    // using -fexceptions
+    // console.log("Exception Message:", m.getExceptionMessage(e));
   }
 })();
