@@ -3,9 +3,6 @@ import main from '/emscripten/build/main.js';
 (async () => {
   const m = await main({
     locateFile: f => "/emscripten/build/main.wasm",
-    dynamicLibraries: [
-      "/emscripten/build/library.wasm",
-    ],
   });
   try {
     m.throwSomething();
