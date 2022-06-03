@@ -19,7 +19,7 @@ public:
 
 string getExceptionMessage(intptr_t exceptionPtr)
 {
-  string m = reinterpret_cast<exception *>(exceptionPtr)->what();
+  string m = reinterpret_cast<SomeException *>(exceptionPtr)->what();
   return m;
 }
 
@@ -31,5 +31,5 @@ void throwSomething()
 EMSCRIPTEN_BINDINGS(main)
 {
   emscripten::function("throwSomething", &throwSomething);
-  emscripten::function("getExceptionMessage", &getExceptionMessage);
+  emscripten::function("myGetExceptionMessage", &getExceptionMessage);
 }
